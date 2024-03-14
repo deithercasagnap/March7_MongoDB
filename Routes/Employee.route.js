@@ -1,13 +1,26 @@
 const express = require('express');
 const router = express.Router();
 
+
+const Employee = require('../Model/Employee.model');
+
+
+
 router.get('/', (req, res, next) =>  {
     res.send('List of all Employees');
 
 });
 
-router.post('/', (req, res, next) => {
-    res.send('Create an employee');
+router.post('/', async (req, res, next) => {
+    try {
+        const employee = new Employee(req.body);
+        const result = await employee.save();
+        res.send(result);
+        
+    } catch (error) {
+        res.send(error.message);
+        
+    }
 });
 
 router.patch('/:id', (req, res, next) => {

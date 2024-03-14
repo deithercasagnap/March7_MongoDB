@@ -4,10 +4,16 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const uri = "mongodb+srv://deithercasagnap:deithercasagnap@interactivity.5etkxwg.mongodb.net/?retryWrites=true&w=majority&appName=InterActivity";
+const uri = "mongodb+srv://cluster0.4exlrk4.mongodb.net/RestAPIpractice";
 
 
-mongoose.connect(uri)
+app.use(express.json());
+
+mongoose.connect(uri, {
+    appName: 'Cluster0',
+    user: 'dcasagnap1',
+    pass: 'dcasagnap1'
+})
 .then(() => {
     console.log('MongoDB Connected Successfully...')
 })
@@ -19,7 +25,7 @@ mongoose.connect(uri)
 
 
 const EmployeeRoute = require('./Routes/Employee.route');
-app.use(('/employee'), EmployeeRoute);
+app.use(('/employees'), EmployeeRoute);
 
 
 const UserRoute = require('./Routes/Users.route');

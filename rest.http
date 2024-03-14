@@ -3,7 +3,13 @@ GET http://localhost:3000/employee
 
 
 ###Post an employee
-POST http://localhost:3000/employee
+POST http://localhost:3000/employees
+Content-Type: application/json
+//LOVEEE
+{
+    "name": "Deither",
+    "age": 21
+}
 
 
 ###Patch one employee
