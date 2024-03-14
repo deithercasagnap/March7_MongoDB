@@ -1,5 +1,5 @@
 ###Get All Employee
-GET http://localhost:3000/employee
+GET http://localhost:3000/employees
 
 
 ###Post an employee

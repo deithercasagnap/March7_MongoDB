@@ -6,8 +6,14 @@ const Employee = require('../Model/Employee.model');
 
 
 
-router.get('/', (req, res, next) =>  {
-    res.send('List of all Employees');
+router.get('/', async (req, res, next) =>  {
+    try {
+        const result = await Employee.find(req.body);
+        res.send(result);
+    } catch (error) {
+        res.send(error.message)
+        
+    }
 
 });
 
